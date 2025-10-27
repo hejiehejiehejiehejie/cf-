@@ -10,11 +10,6 @@
 - **视觉优化**：正文、工具条、提交代码容器与正文对齐，左右留白舒适，超宽内容（如表格/代码）局部滚动。
 - **响应式设计**：适配不同屏幕尺寸，内容完整显示无裁剪。
 
-## 安装
-1. 安装 [Tampermonkey](https://www.tampermonkey.net/) 扩展（支持 Chrome、Edge、Firefox、Safari）。
-2. 点击 [Install this script](#)（替换为 Greasy Fork 的 Install 链接）。
-3. 在 Tampermonkey 弹窗中点击“安装”。
-
 ## 使用
 - **复制 Markdown**：点击复制按钮（或 Ctrl+M）获取题目链接。
 - **隐藏侧边栏**：
@@ -29,8 +24,6 @@
 - **更新频率？** 自动检查更新（需正确配置 `@updateURL`）。
 
 ## 支持
-- 问题反馈：[GitHub Issues](https://github.com/USER/REPO/issues)
-- 源码/更新：[GitHub Repository](https://github.com/USER/REPO)
 - 许可：MIT
 
 ## 变更日志
