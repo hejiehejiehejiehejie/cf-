@@ -1,6 +1,8 @@
 # QwQ
 为 Codeforces 题目页面设计的用户脚本，优化阅读体验并提供便捷功能。
 
+[点击安装](https://github.com/hejiehejiehejiehejie/cf-/raw/refs/heads/main/QwQ.user.js)
+
 ## 功能
 - **隐藏侧边栏**：一键隐藏 Codeforces 侧边栏，内容全屏展示，适配宽窄屏幕（无整页横向滚动条）。
 - **Markdown 复制**：点击按钮或 Ctrl+M 复制题目链接为 `[CF{ID}{Index}] - 标题` 格式，便于笔记整理。
