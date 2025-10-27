@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         QwQ
-// @namespace    http://codeforces.com/
+// @name         ewe→QwQ
+// @namespace    https://codeforces.com/
 // @version      3.8
 // @description  隐藏侧边栏并提供复制 Markdown；容器与正文对齐；自动隐藏开关（Alt+Q 不改变按钮）；整页横向裁切
 // @match        https://codeforces.com/problemset/problem/*/*
@@ -10,6 +10,10 @@
 // @grant        GM_setClipboard
 // @run-at       document-idle
 // @license      MIT
+// @homepageURL  https://github.com/hejiehejiehejiehejie/cf-
+// @supportURL   https://github.com/hejiehejiehejiehejie/cf-/issues
+// @updateURL    https://github.com/hejiehejiehejiehejie/cf-/raw/refs/heads/main/QwQ.user.js
+// @downloadURL  https://github.com/hejiehejiehejiehejie/cf-/raw/refs/heads/main/QwQ.user.js
 // ==/UserScript==
 
 (() => {
