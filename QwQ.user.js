@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         ewe→QwQ
+// @name         QwQ
 // @namespace    https://codeforces.com/
 // @version      3.8
 // @description  隐藏侧边栏并提供复制 Markdown；容器与正文对齐；自动隐藏开关（Alt+Q 不改变按钮）；整页横向裁切
