@@ -12,8 +12,8 @@
 // @license      MIT
 // @homepageURL  https://github.com/hejiehejiehejiehejie/cf-
 // @supportURL   https://github.com/hejiehejiehejiehejie/cf-/issues
-// @updateURL    https://github.com/hejiehejiehejiehejie/cf-/raw/refs/heads/main/QwQ.user.js
-// @downloadURL  https://github.com/hejiehejiehejiehejie/cf-/raw/refs/heads/main/QwQ.user.js
+// @updateURL    https://raw.githubusercontent.com/hejiehejiehejiehejie/cf-/main/QwQ.user.js
+// @downloadURL  https://raw.githubusercontent.com/hejiehejiehejiehejie/cf-/main/QwQ.user.js
 // ==/UserScript==
 
 (() => {
