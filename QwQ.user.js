@@ -12,8 +12,8 @@
 // @license      MIT
 // @homepageURL  https://github.com/hejiehejiehejiehejie/cf-
 // @supportURL   https://github.com/hejiehejiehejiehejie/cf-/issues
-// @updateURL    https://raw.githubusercontent.com/hejiehejiehejiehejie/cf-/main/QwQ.user.js
-// @downloadURL  https://raw.githubusercontent.com/hejiehejiehejiehejie/cf-/main/QwQ.user.js
+// @updateURL    https://github.com/hejiehejiehejiehejie/cf-/raw/refs/heads/main/QwQ.user.js
+// @downloadURL  https://github.com/hejiehejiehejiehejie/cf-/raw/refs/heads/main/QwQ.user.js
 // ==/UserScript==
 
 (() => {
@@ -287,77 +287,76 @@
   }
 
   function createMarkdownCopyButton() {
-    const url = getCanonicalUrl();
-    const parsed = parseCFUrl(url);
-    if (!parsed) return null;
+      const url = getCanonicalUrl();
+      const parsed = parseCFUrl(url);
+      if (!parsed) return null;
 
-    const title = getProblemTitle();
-    const base = `[CF${parsed.id}${parsed.index}](${url})`;
-    const md = title ? `${base} - ${title}` : base;
+      // 仅输出 [CF***](链接)
+      const md = `[CF${parsed.id}${parsed.index}](${url})`;
 
-    const wrap = document.createElement('span');
-    wrap.id = 'cfMarkdownCopyBtn';
-    wrap.title = '复制 Markdown（Ctrl+M）';
+      const wrap = document.createElement('span');
+      wrap.id = 'cfMarkdownCopyBtn';
+      wrap.title = '复制 Markdown（Ctrl+M）';
 
-    const img = document.createElement('img');
-    img.src = ICON_DATA_URL;
-    img.alt = '复制MD';
+      const img = document.createElement('img');
+      img.src = ICON_DATA_URL;
+      img.alt = '复制MD';
 
-    const toast = createToast('已复制');
-    wrap.appendChild(toast);
+      const toast = createToast('已复制');
+      wrap.appendChild(toast);
 
-    const showToast = () => {
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 800);
-    };
+      const showToast = () => {
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 800);
+      };
 
-    const copy = async () => {
-      try {
-        if (typeof GM_setClipboard !== 'undefined') {
-          GM_setClipboard(md);
-        } else if (navigator.clipboard?.writeText) {
-          await navigator.clipboard.writeText(md);
-        } else {
-          const ta = document.createElement('textarea');
-          ta.value = md;
-          ta.style.position = 'fixed';
-          ta.style.opacity = '0';
-          ta.style.left = '-9999px';
-          document.body.appendChild(ta);
-          ta.focus();
-          ta.select();
-          document.execCommand('copy');
-          ta.remove();
-        }
-        wrap.classList.add('clicked');
-        showToast();
-        setTimeout(() => wrap.classList.remove('clicked'), 200);
-      } catch {}
-    };
+      const copy = async () => {
+          try {
+              if (typeof GM_setClipboard !== 'undefined') {
+                  GM_setClipboard(md);
+              } else if (navigator.clipboard?.writeText) {
+                  await navigator.clipboard.writeText(md);
+              } else {
+                  const ta = document.createElement('textarea');
+                  ta.value = md;
+                  ta.style.position = 'fixed';
+                  ta.style.opacity = '0';
+                  ta.style.left = '-9999px';
+                  document.body.appendChild(ta);
+                  ta.focus();
+                  ta.select();
+                  document.execCommand('copy');
+                  ta.remove();
+              }
+              wrap.classList.add('clicked');
+              showToast();
+              setTimeout(() => wrap.classList.remove('clicked'), 200);
+          } catch {}
+      };
 
-    wrap.addEventListener('mousedown', () => wrap.classList.add('clicked'));
-    wrap.addEventListener('mouseup', () => setTimeout(() => wrap.classList.remove('clicked'), 200));
-    wrap.addEventListener('mouseleave', () => wrap.classList.remove('clicked'));
-    wrap.addEventListener('click', (e) => {
-      if (inEditable(e)) return;
-      copy();
-    });
-
-    // Ctrl+M 复制（输入框内不触发）
-    document.addEventListener(
-      'keydown',
-      (e) => {
-        if (inEditable(e)) return;
-        if (e.ctrlKey && e.key && e.key.toLowerCase() === 'm') {
-          e.preventDefault();
+      wrap.addEventListener('mousedown', () => wrap.classList.add('clicked'));
+      wrap.addEventListener('mouseup', () => setTimeout(() => wrap.classList.remove('clicked'), 200));
+      wrap.addEventListener('mouseleave', () => wrap.classList.remove('clicked'));
+      wrap.addEventListener('click', (e) => {
+          if (inEditable(e)) return;
           copy();
-        }
-      },
-      { passive: false }
-    );
+      });
 
-    wrap.appendChild(img);
-    return wrap;
+      // Ctrl+M 复制（输入框内不触发）
+      document.addEventListener(
+          'keydown',
+          (e) => {
+              if (inEditable(e)) return;
+              if (e.ctrlKey && e.key && e.key.toLowerCase() === 'm') {
+                  e.preventDefault();
+                  copy();
+              }
+          },
+          { passive: false }
+      );
+
+      wrap.appendChild(img);
+      return wrap;
   }
 
   /*** -------------------- 行为控制与对齐 -------------------- ***/
